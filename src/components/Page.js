@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import Section from "./Section";
+import Education from "./Education";
 
 export default class Page extends Component {
   render() {
@@ -14,7 +14,7 @@ export default class Page extends Component {
     return (
       <div className="page">
         <Header {...defaultPerson} className="header" />
-        <Section />
+        <Education />
       </div>
     );
   }
