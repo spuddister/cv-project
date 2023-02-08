@@ -1,7 +1,9 @@
 import "./App.css";
+import React, { Component } from "react";
+import Page from "./components/Page";
 
-function App() {
-  return <div className="App">heklo wlrd</div>;
+export default class App extends Component {
+  render() {
+    return <Page />;
+  }
 }
-
-export default App;
