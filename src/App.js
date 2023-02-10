@@ -1,9 +1,15 @@
 import "./App.css";
 import React, { Component } from "react";
 import Page from "./components/Page";
+import Header from "./components/Header";
 
 export default class App extends Component {
   render() {
-    return <Page />;
+    return (
+      <>
+        <Header />
+        <Page />
+      </>
+    );
   }
 }
