@@ -3,13 +3,13 @@ import Company from "./Company";
 
 export default class Work extends Component {
   render() {
-    const companies = this.props.work.map((company, index) => (
-      <Company key={index} companyData={company} />
-    ));
+    const companies = Object.keys(this.props.work).map((company) => {
+      return <Company key={company} companyData={this.props.work[company]} />;
+    });
     return (
       <>
         <h2>Work Experience</h2>
-        <>{companies}</>
+        <div>{companies}</div>
       </>
     );
   }

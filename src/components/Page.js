@@ -14,16 +14,16 @@ export default class Page extends Component {
         github: "spuddister",
         githubURL: "https://github.com/spuddister",
       },
-      education: [
-        {
+      education: {
+        0: {
           school: "Toronto Metroplitan University",
           degree: "Bachelors of Engineering",
           startYear: "2014",
           graduatingYear: "2019",
         },
-      ],
-      work: [
-        {
+      },
+      work: {
+        0: {
           company: "McDonald's",
           startDate: "June 2022",
           endDate: "March 2024",
@@ -35,20 +35,36 @@ export default class Page extends Component {
             "Quality control",
           ],
         },
-      ],
+      },
     };
+
+    this.updateData = this.updateData.bind(this);
   }
 
-  updateData(newData) {
-    this.setState(); //have the components pass back key:value pairs to update state, then we (me and future me) can use this single function to update state
+  updateData(section, key, data, index) {
+    if (!index) {
+      this.setState({ [section]: { [key]: data } });
+    }
+    // this.setState({ [section][index]: { [key]: data } });
+    //have the components pass back key:value pairs to update state, then we (me and future me) can use this single function to update state
+    // this.state.section.key
+    // or
+    // this.state.section[index].key
   }
 
   render() {
     return (
       <div className="page">
-        <Profile {...this.state.profile} className="header" />
-        <Education education={this.state.education} />
-        <Work work={this.state.work} />
+        <Profile
+          updateData={this.updateData}
+          {...this.state.profile}
+          className="profile"
+        />
+        <Education
+          updateData={this.updateData}
+          education={this.state.education}
+        />
+        <Work updateData={this.updateData} work={this.state.work} />
       </div>
     );
   }

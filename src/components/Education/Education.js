@@ -3,8 +3,8 @@ import School from "./School";
 
 export default class Education extends Component {
   render() {
-    const schools = this.props.education.map((school, index) => (
-      <School key={index} schoolData={school} />
+    const schools = Object.keys(this.props.education).map((school) => (
+      <School key={school} schoolData={this.props.education[school]} />
     ));
     return (
       <>
