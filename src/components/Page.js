@@ -11,8 +11,8 @@ export default class Page extends Component {
         name: "Sam Puddister",
         email: "sam.puddister@gmail.com",
         phone: "(515) 555- 1234",
-        github: "spuddister",
-        githubURL: "https://github.com/spuddister",
+        social: "spuddister",
+        socialURL: "https://github.com/spuddister",
       },
       education: {
         0: {
