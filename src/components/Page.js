@@ -38,33 +38,26 @@ export default class Page extends Component {
       },
     };
 
-    this.updateData = this.updateData.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  updateData(section, key, data, index) {
-    if (!index) {
-      this.setState({ [section]: { [key]: data } });
-    }
-    // this.setState({ [section][index]: { [key]: data } });
-    //have the components pass back key:value pairs to update state, then we (me and future me) can use this single function to update state
-    // this.state.section.key
-    // or
-    // this.state.section[index].key
+  handleChange(data) {
+    this.setState(data);
   }
 
   render() {
     return (
       <div className="page">
         <Profile
-          updateData={this.updateData}
-          {...this.state.profile}
+          profileData={this.state.profile}
+          updateData={this.handleChange}
           className="profile"
         />
         <Education
-          updateData={this.updateData}
+          updateData={this.handleChange}
           education={this.state.education}
         />
-        <Work updateData={this.updateData} work={this.state.work} />
+        <Work updateData={this.handleChange} work={this.state.work} />
       </div>
     );
   }
