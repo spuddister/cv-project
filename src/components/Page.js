@@ -16,7 +16,7 @@ export default class Page extends Component {
       },
       education: {
         0: {
-          school: "Toronto Metroplitan University",
+          school: "Toronto Metropolitan University",
           degree: "Bachelors of Engineering",
           startYear: "2014",
           graduatingYear: "2019",
@@ -50,14 +50,14 @@ export default class Page extends Component {
       <div className="page">
         <Profile
           profileData={this.state.profile}
-          updateData={this.handleChange}
+          updateParent={this.handleChange}
           className="profile"
         />
         <Education
-          updateData={this.handleChange}
+          updateParent={this.handleChange}
           education={this.state.education}
         />
-        <Work updateData={this.handleChange} work={this.state.work} />
+        <Work updateParent={this.handleChange} work={this.state.work} />
       </div>
     );
   }

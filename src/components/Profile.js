@@ -20,7 +20,7 @@ export default class Profile extends Component {
   handleFocus(key) {
     if (this.state[key]) {
       this.setState({ [key]: false });
-      this.props.updateData(this.state.profile); //update parent with new data
+      this.props.updateParent(this.state.profile);
     } else {
       this.setState({ [key]: true });
     }
@@ -39,20 +39,18 @@ export default class Profile extends Component {
     const { name, email, phone, social, socialURL } = this.state.profile;
 
     const nameJSX = this.state.editName ? (
-      <h1>
-        <input
-          className="level-1-text-edit"
-          name="name"
-          autoFocus
-          onChange={this.handleChange}
-          onBlur={() => this.handleFocus("editName")}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") this.handleFocus("editName");
-          }}
-          type={"text"}
-          value={name}
-        />
-      </h1>
+      <input
+        className="level-1-text-edit"
+        name="name"
+        autoFocus
+        onChange={this.handleChange}
+        onBlur={() => this.handleFocus("editName")}
+        onKeyUp={(e) => {
+          if (e.key === "Enter") this.handleFocus("editName");
+        }}
+        type={"text"}
+        value={name}
+      />
     ) : (
       <h1
         className="level-1-text"
@@ -65,20 +63,18 @@ export default class Profile extends Component {
     );
 
     const emailJSX = this.state.editEmail ? (
-      <p>
-        <input
-          className="level-4-text-edit"
-          name="email"
-          autoFocus
-          onChange={this.handleChange}
-          onBlur={() => this.handleFocus("editEmail")}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") this.handleFocus("editEmail");
-          }}
-          type={"text"}
-          value={email}
-        />
-      </p>
+      <input
+        className="level-4-text-edit"
+        name="email"
+        autoFocus
+        onChange={this.handleChange}
+        onBlur={() => this.handleFocus("editEmail")}
+        onKeyUp={(e) => {
+          if (e.key === "Enter") this.handleFocus("editEmail");
+        }}
+        type={"text"}
+        value={email}
+      />
     ) : (
       <p
         className="level-4-text"
@@ -91,20 +87,18 @@ export default class Profile extends Component {
     );
 
     const phoneJSX = this.state.editPhone ? (
-      <p>
-        <input
-          className="level-4-text-edit"
-          name="phone"
-          autoFocus
-          onChange={this.handleChange}
-          onBlur={() => this.handleFocus("editPhone")}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") this.handleFocus("editPhone");
-          }}
-          type={"text"}
-          value={phone}
-        />
-      </p>
+      <input
+        className="level-4-text-edit"
+        name="phone"
+        autoFocus
+        onChange={this.handleChange}
+        onBlur={() => this.handleFocus("editPhone")}
+        onKeyUp={(e) => {
+          if (e.key === "Enter") this.handleFocus("editPhone");
+        }}
+        type={"text"}
+        value={phone}
+      />
     ) : (
       <p
         className="level-4-text"
