@@ -19,7 +19,7 @@ export default class School extends Component {
   handleFocus(key) {
     if (this.state[key]) {
       this.setState({ [key]: false });
-      this.props.updateParent(this.props.index, this.state.school);
+      this.props.updateParent(this.state.school, this.props.index);
     } else {
       this.setState({ [key]: true });
     }
@@ -134,12 +134,15 @@ export default class School extends Component {
     );
 
     return (
-      <div className="education-data">
+      <div className="school-data">
         {schoolNameJSX}
         {degreeJSX}
         <p>
           {startYearJSX} - {graduatingYearJSX}
         </p>
+        <button onClick={() => this.props.deleteSchool(this.props.schoolData)}>
+          x
+        </button>
       </div>
     );
   }

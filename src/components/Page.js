@@ -14,14 +14,20 @@ export default class Page extends Component {
         social: "spuddister",
         socialURL: "https://github.com/spuddister",
       },
-      education: {
-        0: {
+      education: [
+        {
           school: "Toronto Metropolitan University",
           degree: "Bachelors of Engineering",
           startYear: "2014",
           graduatingYear: "2019",
         },
-      },
+        {
+          school: "TESETSETSEETSET",
+          degree: "Bachelors of Engineering",
+          startYear: "2014",
+          graduatingYear: "2019",
+        },
+      ],
       work: {
         0: {
           company: "McDonald's",
