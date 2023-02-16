@@ -1,5 +1,6 @@
 import { Component } from "react";
 import School from "./School";
+import { IoAdd } from "react-icons/io5";
 
 export default class Education extends Component {
   constructor(props) {
@@ -38,16 +39,20 @@ export default class Education extends Component {
       <School
         key={i}
         index={i}
-        schoolData={this.props.education[i]}
+        schoolData={school}
         updateParent={this.handleChange}
         deleteSchool={this.handleDelete}
       />
     ));
     return (
       <>
-        <h2 className="level-2-text">Education</h2>
+        <h2 className="level-2-text">
+          Education{" "}
+          <button onClick={this.handleAdd}>
+            <IoAdd />
+          </button>
+        </h2>
         <>{schools}</>
-        <button onClick={this.handleAdd}>+</button>
       </>
     );
   }

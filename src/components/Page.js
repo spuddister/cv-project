@@ -28,8 +28,8 @@ export default class Page extends Component {
           graduatingYear: "2019",
         },
       ],
-      work: {
-        0: {
+      work: [
+        {
           company: "McDonald's",
           startDate: "June 2022",
           endDate: "March 2024",
@@ -41,7 +41,7 @@ export default class Page extends Component {
             "Quality control",
           ],
         },
-      },
+      ],
     };
 
     this.handleChange = this.handleChange.bind(this);

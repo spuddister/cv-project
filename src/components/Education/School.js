@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { IoClose } from "react-icons/io5";
 
 export default class School extends Component {
   constructor(props) {
@@ -140,8 +141,11 @@ export default class School extends Component {
         <p>
           {startYearJSX} - {graduatingYearJSX}
         </p>
-        <button onClick={() => this.props.deleteSchool(this.props.schoolData)}>
-          x
+        <button
+          className="delete-button"
+          onClick={() => this.props.deleteSchool(this.props.schoolData)}
+        >
+          <IoClose />
         </button>
       </div>
     );
