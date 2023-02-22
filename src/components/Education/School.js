@@ -136,17 +136,17 @@ export default class School extends Component {
 
     return (
       <div className="school-data">
-        {schoolNameJSX}
-        {degreeJSX}
-        <p>
-          {startYearJSX} - {graduatingYearJSX}
-        </p>
         <button
           className="delete-button"
           onClick={() => this.props.deleteSchool(this.props.schoolData)}
         >
           <IoClose />
         </button>
+        {schoolNameJSX}
+        {degreeJSX}
+        <p>
+          {startYearJSX} - {graduatingYearJSX}
+        </p>
       </div>
     );
   }

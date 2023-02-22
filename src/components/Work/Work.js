@@ -42,7 +42,15 @@ export default class Work extends Component {
 
   render() {
     const companies = this.props.work.map((company, index) => {
-      return <Company key={index} companyData={company} />;
+      return (
+        <Company
+          key={index}
+          index={index}
+          deleteCompany={this.handleDelete}
+          updateParent={this.handleChange}
+          companyData={company}
+        />
+      );
     });
     return (
       <>

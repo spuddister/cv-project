@@ -35,10 +35,10 @@ export default class Education extends Component {
   }
 
   render() {
-    const schools = this.props.education.map((school, i) => (
+    const schools = this.props.education.map((school, index) => (
       <School
-        key={i}
-        index={i}
+        key={index}
+        index={index}
         schoolData={school}
         updateParent={this.handleChange}
         deleteSchool={this.handleDelete}
