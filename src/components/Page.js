@@ -8,37 +8,50 @@ export default class Page extends Component {
     super(props);
     this.state = {
       profile: {
-        name: "Sam Puddister",
-        email: "sam.puddister@gmail.com",
-        phone: "(515) 555- 1234",
-        social: "spuddister",
+        name: "Homer J. Simpson",
+        email: "chunkylover53@aol.com",
+        phone: "(939) 555- 0113",
+        social: "HomerJSimpson",
         socialURL: "https://github.com/spuddister",
       },
       education: [
         {
-          school: "Toronto Metropolitan University",
-          degree: "Bachelors of Engineering",
-          startYear: "2014",
-          graduatingYear: "2019",
-        },
-        {
-          school: "TESETSETSEETSET",
-          degree: "Bachelors of Engineering",
-          startYear: "2014",
-          graduatingYear: "2019",
+          school: "Springfield High School, Springfield, USA",
+          degree: "HS Diploma College Prep",
+          startYear: "1984",
+          graduatingYear: "1989",
         },
       ],
       work: [
         {
-          company: "McDonald's",
-          startDate: "June 2022",
-          endDate: "March 2024",
-          position: "Line Cook",
+          company: "Springfield Nuclear Power Plant, Springfield, USA",
+          startDate: "1989",
+          endDate: "Present",
+          position: "Safety Inspector",
           duties: [
-            "Flip burgers",
-            "Build sandwiches",
-            "Restock goods",
-            "Quality control",
+            "Strengthened safety procedures that resulted in 75% fewer accidents on days I was absent.",
+            "Pioneered workplace stress-reduction methods that worked for at least one employee.",
+          ],
+        },
+        {
+          company: "City of Springfield, Springfield, USA",
+          startDate: "2002",
+          endDate: "2002",
+          position: "Chief of Police",
+          duties: [
+            "Broke up weasel-selling ring.",
+            "Secured community support in almost-successful effort to expel organized crime from city.",
+          ],
+        },
+        {
+          company: "Mr. Plow, Springfield, USA",
+          startDate: "1992",
+          endDate: "1993",
+          position:
+            "Owner, Chief Marketing Officer, and Chief Driver for Snow-Plowing Business",
+          duties: [
+            "Boosted business 15% by executing late-night TV marketing campaign targeting homeowners who were too wasted to shovel their driveways.",
+            "Deliberated at length before rescuing man trapped beneath mountain avalanche.",
           ],
         },
       ],

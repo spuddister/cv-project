@@ -47,7 +47,7 @@ export default class Company extends Component {
       this.setState((state) => ({
         company: {
           ...state.company,
-          [event.currentTarget.name]: event.currentTarget.value,
+          [event.target.name]: event.target.value,
         },
       }));
     }
@@ -62,10 +62,10 @@ export default class Company extends Component {
         event.currentTarget.getAttribute("index") * 1 + 1
       ),
     ];
-    this.setState({ company: { ...tempCompany } });
+    this.setState({ company: tempCompany });
   }
 
-  handleDutyAdd(event) {
+  handleDutyAdd() {
     const tempCompany = { ...this.state.company };
     tempCompany.duties = [...tempCompany.duties, "New duty"];
     this.setState({ company: { ...tempCompany } });
@@ -207,7 +207,7 @@ export default class Company extends Component {
           }}
         >
           <button
-            className="delete-button"
+            className="task-delete-button"
             index={index}
             onClick={this.handleDutyDelete}
           >
@@ -222,7 +222,9 @@ export default class Company extends Component {
       <>
         <button
           className="delete-button"
-          onClick={() => this.props.deleteCompany(this.props.companyData)}
+          onClick={() => {
+            this.props.deleteCompany(this.props.index);
+          }}
         >
           <IoClose />
         </button>

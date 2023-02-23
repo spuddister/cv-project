@@ -18,9 +18,8 @@ export default class Work extends Component {
   }
 
   handleDelete(deleteThis) {
-    const newParentData = this.props.work.filter(
-      (company) => company !== deleteThis
-    );
+    const newParentData = this.props.work;
+    delete newParentData[deleteThis];
     this.props.updateParent({ work: newParentData });
   }
 
@@ -54,13 +53,13 @@ export default class Work extends Component {
     });
     return (
       <>
-        <h2>
+        <h2 className="level-2-text">
           Work Experience{" "}
           <button onClick={this.handleAdd}>
             <IoAdd />
           </button>
         </h2>
-        <div>{companies}</div>
+        <div className="company-data">{companies}</div>
       </>
     );
   }
