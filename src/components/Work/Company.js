@@ -67,7 +67,7 @@ export default class Company extends Component {
 
   handleDutyAdd() {
     const tempCompany = { ...this.state.company };
-    tempCompany.duties = [...tempCompany.duties, "New duty"];
+    tempCompany.duties = [...tempCompany.duties, "Responsible for..."];
     this.setState({ company: { ...tempCompany } });
   }
 
@@ -177,7 +177,7 @@ export default class Company extends Component {
         return (
           <li key={index}>
             <button
-              className="delete-button"
+              className="task-delete-button"
               index={index}
               onClick={this.handleDutyDelete}
             >
@@ -207,7 +207,7 @@ export default class Company extends Component {
           }}
         >
           <button
-            className="task-delete-button"
+            className="duty-delete-button"
             index={index}
             onClick={this.handleDutyDelete}
           >
@@ -235,7 +235,7 @@ export default class Company extends Component {
         </p>
         <ul>
           {dutiesList}
-          <button onClick={this.handleDutyAdd}>
+          <button className="duty-add-button" onClick={this.handleDutyAdd}>
             <IoAdd />
           </button>
         </ul>

@@ -8,9 +8,10 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   height: 100vh;
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   justify-content: center;
+  --default-padding: 20px;
 }
 
 .page {
@@ -18,7 +19,6 @@ body {
   width: 1000px;
   display: grid;
   margin: 20px 0 15px 0;
-  padding: 20px;
 }
 
 p {
@@ -27,4 +27,105 @@ p {
 
 h3 {
   margin: 0;
+}
+
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-data {
+  padding: var(--default-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education-data {
+  position: relative;
+  padding: var(--default-padding);
+}
+
+.work-data {
+  position: relative;
+  padding: var(--default-padding);
+}
+
+button {
+  position: absolute;
+  cursor: pointer;
+}
+
+.add-button {
+  border: none;
+  border-radius: 0.25em;
+  background-color: green;
+}
+
+.duty-add-button {
+  background-color: green;
+}
+
+.delete-button {
+  font-size: 1.2em;
+  left: -55px;
+  background: rebeccapurple;
+  display: inline-block;
+  width: 32px;
+  /* margin-top: 20px;
+  margin-right: 55px; */
+  position: absolute;
+  height: 24px;
+  border: none;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0;
+}
+.delete-button:before {
+  border-left: 16px solid rebeccapurple;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  content: "";
+  width: 0;
+  top: 0;
+  position: absolute;
+  right: -16px;
+  height: 0;
+}
+
+.duty-delete-button {
+  background-color: red;
+  border: none;
+  border-radius: 50%;
+  width: 1.25em;
+  height: 1.25em;
+  font-size: 0.75em;
+  padding: 0;
+  left: -30px;
+}
+
+.level-1-text {
+}
+
+.level-2-text {
+  border-bottom: solid navy 3px;
+  color: navy;
+  margin-top: 0;
+}
+
+.level-3-text {
+}
+
+.level-4-text {
+}
+
+.level-1-text-edit {
+  font-size: 2em;
+}
+
+.level-3-text-edit {
+}
+
+.level-4-text-edit {
 }

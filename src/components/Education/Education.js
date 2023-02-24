@@ -17,13 +17,11 @@ export default class Education extends Component {
     this.props.updateParent(tempEducation);
   }
 
-  handleDelete(deleteThis) {
-    const newParentData = this.props.education.filter(
-      (school) => school !== deleteThis
-    );
+  handleDelete(indexForDelete) {
+    const newParentData = this.props.education;
+    delete newParentData[indexForDelete];
     this.props.updateParent({ education: newParentData });
   }
-
   handleAdd() {
     const newSchool = {
       school: "School",
@@ -45,15 +43,15 @@ export default class Education extends Component {
       />
     ));
     return (
-      <>
+      <div className="education-data">
         <h2 className="level-2-text">
           Education{" "}
-          <button onClick={this.handleAdd}>
+          <button className="add-button" onClick={this.handleAdd}>
             <IoAdd />
           </button>
         </h2>
         <>{schools}</>
-      </>
+      </div>
     );
   }
 }

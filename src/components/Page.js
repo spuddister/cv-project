@@ -70,7 +70,6 @@ export default class Page extends Component {
         <Profile
           profileData={this.state.profile}
           updateParent={this.handleChange}
-          className="profile"
         />
         <Education
           updateParent={this.handleChange}

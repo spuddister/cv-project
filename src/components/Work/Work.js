@@ -17,24 +17,19 @@ export default class Work extends Component {
     this.props.updateParent(tempWork);
   }
 
-  handleDelete(deleteThis) {
+  handleDelete(indexForDelete) {
     const newParentData = this.props.work;
-    delete newParentData[deleteThis];
+    delete newParentData[indexForDelete];
     this.props.updateParent({ work: newParentData });
   }
 
   handleAdd() {
     const newCompany = {
-      company: "McDonald's",
-      startDate: "June 2022",
-      endDate: "March 2024",
-      position: "Line Cook",
-      duties: [
-        "Flip burgers",
-        "Build sandwiches",
-        "Restock goods",
-        "Quality control",
-      ],
+      company: "Company Name",
+      startDate: "Start Date",
+      endDate: "End Date",
+      position: "Position Title",
+      duties: ["Responsibility 1...", "Responsibility 2..."],
     };
     this.handleChange(newCompany, this.props.work.length);
   }
@@ -52,15 +47,15 @@ export default class Work extends Component {
       );
     });
     return (
-      <>
+      <div className="work-data">
         <h2 className="level-2-text">
           Work Experience{" "}
-          <button onClick={this.handleAdd}>
+          <button className="add-button" onClick={this.handleAdd}>
             <IoAdd />
           </button>
         </h2>
         <div className="company-data">{companies}</div>
-      </>
+      </div>
     );
   }
 }

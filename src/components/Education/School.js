@@ -138,7 +138,7 @@ export default class School extends Component {
       <div className="school-data">
         <button
           className="delete-button"
-          onClick={() => this.props.deleteSchool(this.props.schoolData)}
+          onClick={() => this.props.deleteSchool(this.props.index)}
         >
           <IoClose />
         </button>
