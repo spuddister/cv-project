@@ -11,7 +11,7 @@ body {
   /* width: 100vw; */
   display: flex;
   justify-content: center;
-  --default-padding: 20px;
+  --default-padding: 20px 40px;
   --licorice: #171219;
   --gunmetal: #1d343d;
   --midnight-green: #225560;
@@ -24,7 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 10px 0 15px 0;
-  min-height: 1414px;
+  min-height: 1294px;
 }
 
 p {
@@ -49,6 +49,7 @@ ul {
   justify-content: space-between;
   font-family: "Kanit", sans-serif;
   align-items: center;
+  color: var(--licorice);
 }
 
 .header-title {
@@ -61,7 +62,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #225560;
+  background-color: var(--gunmetal);
   color: white;
 }
 
@@ -120,7 +121,7 @@ ul {
   height: 1.25em;
   font-size: 0.75em;
   padding: 0;
-  left: -70px;
+  left: -90px;
   top: 0;
 }
 
@@ -130,8 +131,6 @@ ul {
   background: var(--icterine);
   display: inline-block;
   width: 28px;
-  /* margin-top: 20px;
-  margin-right: 55px; */
   position: absolute;
   height: 20px;
   border: none;
@@ -159,7 +158,7 @@ ul {
   height: 1.25em;
   font-size: 0.75em;
   padding: 0;
-  left: -50px;
+  left: -70px;
 }
 
 .level-1-text {
@@ -176,16 +175,43 @@ ul {
 }
 
 .level-4-text {
+  margin: 2px;
 }
 
 .level-1-text-edit {
-  font-size: 2em;
+  font-size: 2.5em;
+  font-weight: 900;
+  background-color: var(--icterine);
+  outline: none;
+  border: none;
+  display: inline-flex;
+  border-radius: 1em;
+  padding: 0.25em 0.5em;
 }
 
 .level-3-text-edit {
+  background-color: var(--icterine);
+  outline: none;
+  border: none;
+  font-size: 1.16em;
+  font-weight: 900;
+  color: var(--gunmetal);
+  display: inline-flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  border-radius: 1em;
+  padding: 0.25em 0.5em;
 }
 
 .level-4-text-edit {
+  background-color: var(--icterine);
+  outline: none;
+  border: none;
+  border-radius: 1em;
+  font-size: 1em;
+  display: inline-flex;
+  padding: 0.25em 0.5em;
 }
 
 .social-icon {

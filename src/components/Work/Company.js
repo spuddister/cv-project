@@ -177,16 +177,18 @@ export default class Company extends Component {
         return (
           <li key={index}>
             <button
-              className="task-delete-button"
+              className="duty-delete-button"
               index={index}
               onClick={this.handleDutyDelete}
             >
               <IoClose />
             </button>
-            <input
+            <textarea
               index={index}
               className="level-4-text-edit"
               name={dutyName}
+              cols="110"
+              rows="2"
               autoFocus
               onChange={this.handleChange}
               onBlur={() => this.handleFocus(dutyName)}
@@ -195,7 +197,7 @@ export default class Company extends Component {
               }}
               type={"text"}
               value={duty}
-            ></input>
+            ></textarea>
           </li>
         );
       }
