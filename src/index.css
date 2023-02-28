@@ -12,13 +12,19 @@ body {
   display: flex;
   justify-content: center;
   --default-padding: 20px;
+  --licorice: #171219;
+  --gunmetal: #1d343d;
+  --midnight-green: #225560;
+  --icterine: #edf060;
 }
 
 .page {
   box-shadow: 0 0 10px 1px rgba(143, 143, 143, 0.753);
   width: 1000px;
-  display: grid;
-  margin: 20px 0 15px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 15px 0;
+  min-height: 1414px;
 }
 
 p {
@@ -29,10 +35,25 @@ h3 {
   margin: 0;
 }
 
+button {
+  position: absolute;
+  cursor: pointer;
+}
+
+ul {
+  position: relative;
+}
+
 .header-div {
   display: flex;
   justify-content: space-between;
+  font-family: "Kanit", sans-serif;
   align-items: center;
+}
+
+.header-title {
+  font-size: 2em;
+  margin: 0;
 }
 
 .profile-data {
@@ -40,6 +61,18 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #225560;
+  color: white;
+}
+
+.profile-data .level-1-text {
+  margin: 0;
+  padding-bottom: var(--default-padding);
+  font-size: 3em;
+}
+
+.profile-data .level-4-text {
+  margin: 3px;
 }
 
 .education-data {
@@ -52,29 +85,13 @@ h3 {
   padding: var(--default-padding);
 }
 
-button {
-  position: absolute;
-  cursor: pointer;
-}
-
 .add-button {
-  border: none;
-  border-radius: 0.25em;
-  background-color: green;
-}
-
-.duty-add-button {
-  background-color: green;
-}
-
-.delete-button {
-  font-size: 1.2em;
+  font-size: 0.85em;
+  color: white;
   left: -55px;
-  background: rebeccapurple;
+  background: var(--midnight-green);
   display: inline-block;
-  width: 32px;
-  /* margin-top: 20px;
-  margin-right: 55px; */
+  width: 28px;
   position: absolute;
   height: 24px;
   border: none;
@@ -82,8 +99,8 @@ button {
   border-top-left-radius: 4px;
   padding: 0;
 }
-.delete-button:before {
-  border-left: 16px solid rebeccapurple;
+.add-button:before {
+  border-left: 16px solid var(--midnight-green);
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   content: "";
@@ -94,27 +111,68 @@ button {
   height: 0;
 }
 
-.duty-delete-button {
-  background-color: red;
+.duty-add-button {
+  background-color: var(--midnight-green);
+  color: white;
   border: none;
   border-radius: 50%;
   width: 1.25em;
   height: 1.25em;
   font-size: 0.75em;
   padding: 0;
-  left: -30px;
+  left: -70px;
+  top: 0;
+}
+
+.delete-button {
+  font-size: 1em;
+  left: -51px;
+  background: var(--icterine);
+  display: inline-block;
+  width: 28px;
+  /* margin-top: 20px;
+  margin-right: 55px; */
+  position: absolute;
+  height: 20px;
+  border: none;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0;
+}
+.delete-button:before {
+  border-left: 12px solid var(--icterine);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  content: "";
+  width: 0;
+  top: 0;
+  position: absolute;
+  right: -12px;
+  height: 0;
+}
+
+.duty-delete-button {
+  background-color: var(--icterine);
+  border: none;
+  border-radius: 50%;
+  width: 1.25em;
+  height: 1.25em;
+  font-size: 0.75em;
+  padding: 0;
+  left: -50px;
 }
 
 .level-1-text {
 }
 
 .level-2-text {
-  border-bottom: solid navy 3px;
-  color: navy;
+  border-bottom: solid var(--midnight-green) 3px;
+  color: var(--licorice);
   margin-top: 0;
 }
 
 .level-3-text {
+  color: var(--gunmetal);
 }
 
 .level-4-text {
@@ -128,4 +186,8 @@ button {
 }
 
 .level-4-text-edit {
+}
+
+.social-icon {
+  color: var(--icterine);
 }

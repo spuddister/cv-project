@@ -145,7 +145,7 @@ export default class Profile extends Component {
           this.handleFocus("editSocial");
         }}
       >
-        <a href={socialURL}>
+        <a className="social-icon" href={socialURL}>
           <FaGithub className="icon" />
         </a>{" "}
         {social}
