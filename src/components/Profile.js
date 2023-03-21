@@ -10,7 +10,7 @@ export default class Profile extends Component {
       editEmail: false,
       editPhone: false,
       editSocial: false,
-      profile: { ...this.props.profileData },
+      profile: { ...this.props.profile },
     };
 
     this.handleFocus = this.handleFocus.bind(this);
