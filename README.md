@@ -1,3 +1,36 @@
+# CV Project
+
+This is my first React JS project from [The Odin Project](https://www.theodinproject.com/) curriculum. In this project I used React's create-react-app to quickly kickoff development along with the dev server to allow for hot loading. The goal of this project was to apply my newly aquired React knowledge in the creation of a CV Editor. At the link below you can see and edit a CV for Homer Simpson. Feel free to make it your own.
+
+### New Skills / Knowledge
+# Git
+- History changing Git commands
+- Different ways of changing history
+- Using remotes to change history
+- Dangers of history-changing operations
+- Best practices of history-changing operations
+- Pointers
+- Using Git to make open source contributions
+
+# React
+- Class and functional components and their differences
+- React application structure
+- create-react-app
+- State
+- Props
+- Handle inputs and render lists
+- Lifecycle methods (class components)
+- Hooks (functional components)
+
+
+#
+[See deployment here.](https://spuddister.github.io/cv-project/)
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
