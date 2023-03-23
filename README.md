@@ -1,6 +1,8 @@
 # CV Project
 
-This is my first React JS project from [The Odin Project](https://www.theodinproject.com/) curriculum. In this project I used React's create-react-app to quickly kickoff development along with the dev server to allow for hot loading. The goal of this project was to apply my newly aquired React knowledge in the creation of a CV Editor. At the link below you can see and edit a CV for Homer Simpson. Feel free to make it your own.
+This is my first React JS project from [The Odin Project](https://www.theodinproject.com/) curriculum. In this project I used React's create-react-app to quickly kickoff development along with the dev server to allow for hot loading. The goal of this project was to apply my newly aquired React knowledge in the creation of a CV Editor. At the link below you can see and edit a default CV for Homer Simpson. Feel free to make it your own!
+
+This project was first designed with class components and has been reworked with functional components and hooks.
 
 ### New Skills / Knowledge
 #### Git
