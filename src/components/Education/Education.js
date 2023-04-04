@@ -1,5 +1,6 @@
 import School from "./School";
 import { IoAdd } from "react-icons/io5";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Education(props) {
   // function handleChange(data, index) {
@@ -8,14 +9,17 @@ export default function Education(props) {
   //   props.updateParent(tempEducation);
   // }
 
-  const handleChange = (newEducationData) => {
-    props.updateParent([...props.educationData, newEducationData]);
-  };
+  function handleChange(changedSchoolData, index) {
+    const newEducationData = props.educationData;
+    newEducationData[index] = changedSchoolData;
+    props.updateParent(newEducationData);
+  }
 
   function handleDelete(indexForDelete) {
-    const newParentData = props.education;
-    delete newParentData[indexForDelete];
-    props.updateParent({ education: newParentData });
+    const result = props.educationData.filter(
+      (_, index) => index !== indexForDelete
+    );
+    props.updateParent(result);
   }
 
   function handleAdd() {
@@ -25,12 +29,12 @@ export default function Education(props) {
       startYear: "Start",
       graduatingYear: "End",
     };
-    handleChange(newSchool);
+    props.updateParent([...props.educationData, newSchool]);
   }
 
   let schools = props.educationData.map((school, index) => (
     <School
-      key={index}
+      key={uuidv4()}
       index={index}
       schoolData={school}
       updateParent={handleChange}

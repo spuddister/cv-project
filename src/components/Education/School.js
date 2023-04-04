@@ -2,121 +2,125 @@ import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
 export default function School(props) {
-  // const [schoolData, setSchoolData] = useState({
-  //   editingSchoolName: false,
-  //   editingDegree: false,
-  //   editingStartYear: false,
-  //   editingGraduatingYear: false,
-  //   school: { ...props.schoolData },
-  // });
+  const [school, setSchool] = useState(props.schoolData.school);
+  const [degree, setDegree] = useState(props.schoolData.degree);
+  const [startYear, setStartYear] = useState(props.schoolData.startYear);
+  const [graduatingYear, setGraduatingYear] = useState(
+    props.schoolData.graduatingYear
+  );
   const [editingSchoolName, setEditingSchoolName] = useState(false);
   const [editingDegree, setEditingDegree] = useState(false);
   const [editingStartYear, setEditingStartYear] = useState(false);
   const [editingGraduatingYear, setEditingGraduatingYear] = useState(false);
 
-  function handleFocus(key) {
-    if (schoolData[key]) {
-      setSchoolData({ [key]: false });
-      props.updateParent(schoolData.school);
-    } else {
-      setSchoolData({ [key]: true });
-    }
-    // console.log(schoolData[key]);
-    // console.log(schoolData);
+  function handleChange(newValue, changeKey) {
+    const newSchoolData = props.schoolData;
+    newSchoolData[changeKey] = newValue;
+    props.updateParent(newSchoolData, props.index);
   }
 
-  function handleChange(event) {
-    setSchoolData((state) => ({
-      school: {
-        ...state.school,
-        [event.target.name]: event.target.value,
-      },
-    }));
-  }
-
-  const { school, degree, startYear, graduatingYear } = schoolData.school;
-
-  const schoolNameJSX = schoolData.editingSchoolName ? (
+  const schoolNameJSX = editingSchoolName ? (
     <input
       className="level-3-text-edit"
       name="school"
       autoFocus
-      onChange={handleChange}
-      onBlur={() => handleFocus(editingSchoolName)}
+      onChange={(e) => {
+        setSchool(e.target.value);
+        handleChange(school, "school");
+      }}
+      onBlur={(e) => {
+        setEditingSchoolName(false);
+        handleChange(school, "school");
+      }}
       onKeyUp={(e) => {
-        if (e.key === "Enter") handleFocus("editingSchoolName");
+        if (e.key === "Enter") {
+          setEditingSchoolName(false);
+          handleChange(school, "school");
+        }
       }}
       type={"text"}
       value={school}
     />
   ) : (
-    <h3
-      className="level-3-text"
-      onClick={() => {
-        handleFocus("editingSchoolName");
-      }}
-    >
+    <h3 className="level-3-text" onClick={() => setEditingSchoolName(true)}>
       {school}
     </h3>
   );
 
-  const degreeJSX = schoolData.editingDegree ? (
+  const degreeJSX = editingDegree ? (
     <input
       className="level-4-text-edit"
       name="degree"
       autoFocus
-      onChange={handleChange}
-      onBlur={() => handleFocus("editingDegree")}
+      onChange={(e) => {
+        setDegree(e.target.value);
+        handleChange(degree, "degree");
+      }}
+      onBlur={() => {
+        setEditingDegree(false);
+        handleChange(degree, "degree");
+      }}
       onKeyUp={(e) => {
-        if (e.key === "Enter") handleFocus("editingDegree");
+        if (e.key === "Enter") {
+          setEditingDegree(false);
+          handleChange(degree, "degree");
+        }
       }}
       type={"text"}
       value={degree}
     />
   ) : (
-    <p
-      className="level-4-text"
-      onClick={() => {
-        handleFocus("editingDegree");
-      }}
-    >
+    <p className="level-4-text" onClick={() => setEditingDegree(true)}>
       {degree}
     </p>
   );
 
-  const startYearJSX = schoolData.editingStartYear ? (
+  const startYearJSX = editingStartYear ? (
     <input
       className="level-4-text-edit"
       name="startYear"
       autoFocus
-      onChange={handleChange}
-      onBlur={() => handleFocus("editingStartYear")}
+      onChange={(e) => {
+        setStartYear(e.target.value);
+        handleChange(startYear, "startYear");
+      }}
+      onBlur={() => {
+        setEditingStartYear(false);
+        handleChange(startYear, "startYear");
+      }}
       onKeyUp={(e) => {
-        if (e.key === "Enter") handleFocus("editingStartYear");
+        if (e.key === "Enter") {
+          setEditingStartYear(false);
+          handleChange(startYear, "startYear");
+        }
       }}
       type={"text"}
       value={startYear}
     />
   ) : (
-    <span
-      className="level-4-text"
-      onClick={() => {
-        handleFocus("editingStartYear");
-      }}
-    >
+    <span className="level-4-text" onClick={() => setEditingStartYear(true)}>
       {startYear}
     </span>
   );
 
-  const graduatingYearJSX = schoolData.editingGraduatingYear ? (
+  const graduatingYearJSX = editingGraduatingYear ? (
     <input
       className="level-4-text-edit"
       name="graduatingYear"
       autoFocus
-      onChange={handleChange}
-      onBlur={() => handleFocus("editingGraduatingYear")}
+      onChange={(e) => {
+        setGraduatingYear(e.target.value);
+        handleChange(graduatingYear, "graduatingYear");
+      }}
+      onBlur={() => {
+        setEditingGraduatingYear(false);
+        handleChange(graduatingYear, "graduatingYear");
+      }}
       onKeyUp={(e) => {
-        if (e.key === "Enter") handleFocus("editingGraduatingYear");
+        if (e.key === "Enter") {
+          setEditingGraduatingYear(false);
+          handleChange(graduatingYear, "graduatingYear");
+        }
       }}
       type={"text"}
       value={graduatingYear}
@@ -124,9 +128,7 @@ export default function School(props) {
   ) : (
     <span
       className="level-4-text"
-      onClick={() => {
-        handleFocus("editingGraduatingYear");
-      }}
+      onClick={() => setEditingGraduatingYear(true)}
     >
       {graduatingYear}
     </span>
