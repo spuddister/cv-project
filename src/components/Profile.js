@@ -12,22 +12,10 @@ export default function Profile(props) {
   const [editingPhone, setEditingPhone] = useState(false);
   const [editingSocial, setEditingSocial] = useState(false);
 
-  function handleFocus(key) {
-    //   if (this.state[key]) {
-    //     this.setState({ [key]: false });
-    //     this.props.updateParent(this.state.profile);
-    //   } else {
-    //     this.setState({ [key]: true });
-    //   }
-  }
-
-  function handleChange(event) {
-    // this.setState((state) => ({
-    //   profile: {
-    //     ...state.profile,
-    //     [event.target.name]: event.target.value,
-    //   },
-    // }));
+  function handleChange(newValue, target) {
+    let tempProfileData = props.profileData;
+    tempProfileData[target] = newValue;
+    props.updateParent(tempProfileData);
   }
 
   const nameJSX = editingName ? (
@@ -35,10 +23,18 @@ export default function Profile(props) {
       className="level-1-text-edit"
       name="name"
       autoFocus
-      onChange={handleChange}
-      onBlur={() => handleFocus("editingName")}
+      onChange={(e) => {
+        setName(e.target.value);
+        handleChange(e.target.value, "name");
+      }}
+      onBlur={(e) => {
+        setEditingName(false);
+      }}
       onKeyUp={(e) => {
-        if (e.key === "Enter") this.handleFocus("editingName");
+        if (e.key === "Enter") {
+          setEditingName(false);
+          handleChange(e.target.value, "name");
+        }
       }}
       type={"text"}
       value={name}
@@ -47,7 +43,7 @@ export default function Profile(props) {
     <h1
       className="level-1-text"
       onClick={() => {
-        handleFocus("editingName");
+        setEditingName(true);
       }}
     >
       {name}
@@ -59,10 +55,18 @@ export default function Profile(props) {
       className="level-4-text-edit"
       name="email"
       autoFocus
-      onChange={handleChange}
-      onBlur={() => handleFocus("editingEmail")}
+      onChange={(e) => {
+        setEmail(e.target.value);
+        handleChange(e.target.value, "email");
+      }}
+      onBlur={(e) => {
+        setEditingEmail(false);
+      }}
       onKeyUp={(e) => {
-        if (e.key === "Enter") handleFocus("editingEmail");
+        if (e.key === "Enter") {
+          setEditingEmail(false);
+          handleChange(e.target.value, "email");
+        }
       }}
       type={"text"}
       value={email}
@@ -71,7 +75,7 @@ export default function Profile(props) {
     <p
       className="level-4-text"
       onClick={() => {
-        handleFocus("editingEmail");
+        setEditingEmail(true);
       }}
     >
       {email}
@@ -83,10 +87,18 @@ export default function Profile(props) {
       className="level-4-text-edit"
       name="phone"
       autoFocus
-      onChange={handleChange}
-      onBlur={() => handleFocus("editingPhone")}
+      onChange={(e) => {
+        setPhone(e.target.value);
+        handleChange(e.target.value, "phone");
+      }}
+      onBlur={(e) => {
+        setEditingPhone(false);
+      }}
       onKeyUp={(e) => {
-        if (e.key === "Enter") handleFocus("editingPhone");
+        if (e.key === "Enter") {
+          setEditingPhone(false);
+          handleChange(e.target.value, "phone");
+        }
       }}
       type={"text"}
       value={phone}
@@ -95,7 +107,7 @@ export default function Profile(props) {
     <p
       className="level-4-text"
       onClick={() => {
-        handleFocus("editingPhone");
+        setEditingPhone(true);
       }}
     >
       {phone}
@@ -108,12 +120,18 @@ export default function Profile(props) {
         className="level-4-text-edit"
         name="social"
         autoFocus
-        onChange={handleChange}
+        onChange={(e) => {
+          setSocial(e.target.value);
+          handleChange(e.target.value, "social");
+        }}
         onBlur={(e) => {
           e.target.nextSibling.focus();
         }}
         onKeyUp={(e) => {
-          if (e.key === "Enter") e.target.nextSibling.focus();
+          if (e.key === "Enter") {
+            setEditingSocial(false);
+            handleChange(e.target.value, "social");
+          }
         }}
         type={"text"}
         value={social}
@@ -121,26 +139,35 @@ export default function Profile(props) {
       <input
         className="level-4-text-edit"
         name="socialURL"
-        onChange={handleChange}
-        onBlur={() => handleFocus("editingSocial")}
+        onChange={(e) => {
+          setSocialURL(e.target.value);
+          handleChange(e.target.value, "socialURL");
+        }}
+        onBlur={(e) => {
+          setEditingSocial(false);
+        }}
         onKeyUp={(e) => {
-          if (e.key === "Enter") handleFocus("editingSocial");
+          if (e.key === "Enter") {
+            setEditingSocial(false);
+            handleChange(e.target.value, "socialURL");
+          }
         }}
         type={"text"}
         value={socialURL}
       />
     </form>
   ) : (
-    <p
-      className="level-4-text"
-      onClick={() => {
-        handleFocus("editingSocial");
-      }}
-    >
+    <p className="level-4-text">
       <a className="social-icon" href={socialURL}>
         <FaGithub className="icon" />
-      </a>{" "}
-      {social}
+      </a>
+      <span
+        onClick={() => {
+          setEditingSocial(true);
+        }}
+      >
+        {social}
+      </span>
     </p>
   );
 

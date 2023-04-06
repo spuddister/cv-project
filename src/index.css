@@ -212,8 +212,10 @@ ul {
   font-size: 1em;
   display: inline-flex;
   padding: 0.25em 0.5em;
+  margin-right: 0.5em;
 }
 
 .social-icon {
   color: var(--icterine);
+  margin-right: 0.5em;
 }

@@ -30,7 +30,6 @@ export default function School(props) {
       }}
       onBlur={(e) => {
         setEditingSchoolName(false);
-        handleChange(school, "school");
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
@@ -58,7 +57,6 @@ export default function School(props) {
       }}
       onBlur={() => {
         setEditingDegree(false);
-        handleChange(degree, "degree");
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
@@ -86,7 +84,6 @@ export default function School(props) {
       }}
       onBlur={() => {
         setEditingStartYear(false);
-        handleChange(startYear, "startYear");
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
@@ -114,7 +111,6 @@ export default function School(props) {
       }}
       onBlur={() => {
         setEditingGraduatingYear(false);
-        handleChange(graduatingYear, "graduatingYear");
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {

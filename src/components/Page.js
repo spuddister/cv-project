@@ -56,7 +56,9 @@ export default function Page() {
   return (
     <div className="page">
       <Profile
-        updateParent={setProfileData.bind(null)}
+        updateParent={(newData) => {
+          setProfileData(newData);
+        }}
         profileData={profileData}
       />
       <Education
