@@ -8,7 +8,7 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   height: 100vh;
-  /* width: 100vw; */
+  min-width: 1200px;
   display: flex;
   justify-content: center;
   --default-padding: 20px 40px;
@@ -70,6 +70,10 @@ ul {
   margin: 0;
   padding-bottom: var(--default-padding);
   font-size: 3em;
+}
+
+input.level-1-text-edit {
+  text-align: center;
 }
 
 .profile-data .level-4-text {
@@ -161,9 +165,6 @@ ul {
   left: -70px;
 }
 
-.level-1-text {
-}
-
 .level-2-text {
   border-bottom: solid var(--midnight-green) 3px;
   color: var(--licorice);
@@ -187,6 +188,10 @@ ul {
   display: inline-flex;
   border-radius: 1em;
   padding: 0.25em 0.5em;
+}
+
+input.level-3-text-edit {
+  width: 100%;
 }
 
 .level-3-text-edit {

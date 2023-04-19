@@ -1,29 +1,24 @@
-import { Component } from "react";
 import Company from "./Company";
 import { IoAdd } from "react-icons/io5";
+import { v4 as uuidv4 } from "uuid";
 
-export default class Work extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
+export default function Work(props) {
+  function handleChange(tempCompanyData, index) {
+    const tempWorkData = [...props.workData];
+    tempWorkData[index] = tempCompanyData;
+    props.updateParent(tempWorkData);
   }
 
-  handleChange(data, index) {
-    const tempWork = this.props.work;
-    tempWork[index] = data;
-    this.props.updateParent(tempWork);
+  function handleDelete(indexForDelete) {
+    const tempParentData = [...props.workData];
+    let newParentData = [
+      ...tempParentData.slice(0, indexForDelete),
+      ...tempParentData.slice(indexForDelete + 1),
+    ];
+    props.updateParent(newParentData);
   }
 
-  handleDelete(indexForDelete) {
-    const newParentData = this.props.work;
-    delete newParentData[indexForDelete];
-    this.props.updateParent({ work: newParentData });
-  }
-
-  handleAdd() {
+  function handleAdd() {
     const newCompany = {
       company: "Company Name",
       startDate: "Start Date",
@@ -31,31 +26,30 @@ export default class Work extends Component {
       position: "Position Title",
       duties: ["Responsibility 1...", "Responsibility 2..."],
     };
-    this.handleChange(newCompany, this.props.work.length);
+    handleChange(newCompany, props.workData.length);
   }
 
-  render() {
-    const companies = this.props.work.map((company, index) => {
-      return (
-        <Company
-          key={index}
-          index={index}
-          deleteCompany={this.handleDelete}
-          updateParent={this.handleChange}
-          companyData={company}
-        />
-      );
-    });
+  const companies = props.workData.map((company, index) => {
     return (
-      <div className="work-data">
-        <h2 className="level-2-text">
-          Work Experience{" "}
-          <button className="add-button" onClick={this.handleAdd}>
-            <IoAdd />
-          </button>
-        </h2>
-        <div className="company-data">{companies}</div>
-      </div>
+      <Company
+        key={uuidv4()}
+        index={index}
+        deleteCompany={handleDelete}
+        updateParent={handleChange}
+        companyData={company}
+      />
     );
-  }
+  });
+
+  return (
+    <div className="work-data">
+      <h2 className="level-2-text">
+        Work Experience{" "}
+        <button className="add-button" onClick={handleAdd}>
+          <IoAdd />
+        </button>
+      </h2>
+      <div className="company-data">{companies}</div>
+    </div>
+  );
 }

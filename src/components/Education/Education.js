@@ -3,15 +3,9 @@ import { IoAdd } from "react-icons/io5";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Education(props) {
-  // function handleChange(data, index) {
-  //   const tempEducation = props.education;
-  //   tempEducation[index] = data;
-  //   props.updateParent(tempEducation);
-  // }
-
-  function handleChange(changedSchoolData, index) {
+  function handleChange(updatedSchoolData, index) {
     const newEducationData = props.educationData;
-    newEducationData[index] = changedSchoolData;
+    newEducationData[index] = updatedSchoolData;
     props.updateParent(newEducationData);
   }
 

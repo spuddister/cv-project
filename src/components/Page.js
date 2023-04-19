@@ -67,7 +67,12 @@ export default function Page() {
         }}
         educationData={educationData}
       />
-      {/* <Work updateParent={setWorkData.bind(null)} workData={workData} /> */}
+      <Work
+        updateParent={(newData) => {
+          setWorkData(newData);
+        }}
+        workData={workData}
+      />
     </div>
   );
 }
