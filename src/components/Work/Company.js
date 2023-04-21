@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Company(props) {
-  const [companyName, setCompany] = useState(props.companyData.company);
+  const [companyName, setCompanyName] = useState(props.companyData.company);
   const [position, setPosition] = useState(props.companyData.position);
   const [startDate, setStartDate] = useState(props.companyData.startDate);
   const [endDate, setEndDate] = useState(props.companyData.endDate);
@@ -15,7 +15,7 @@ export default function Company(props) {
   const [editingEndDate, setEditingEndDate] = useState(false);
   const [editingDuties, setEditingDuties] = useState({});
 
-  //initilizes the editingDuties state for each duty present to false originally
+  //initializes the editingDuties state for each duty present to false originally
   useEffect(() => {
     let tempEditingDuties = {};
     props.companyData.duties.map((duty, index) => {
@@ -63,16 +63,16 @@ export default function Company(props) {
       name="company"
       autoFocus
       onChange={(e) => {
-        setCompany(e.target.value);
-        handleChange(companyName, e.target.name);
+        setCompanyName(e.target.value);
       }}
       onBlur={(e) => {
         setEditingCompany(false);
+        handleChange(e.target.value, e.target.name);
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
           setEditingCompany(false);
-          handleChange(companyName, e.target.name);
+          handleChange(e.target.value, e.target.name);
         }
       }}
       type={"text"}
@@ -91,15 +91,15 @@ export default function Company(props) {
       autoFocus
       onChange={(e) => {
         setPosition(e.target.value);
-        handleChange(position, e.target.name);
       }}
       onBlur={(e) => {
         setEditingPosition(false);
+        handleChange(e.target.value, e.target.name);
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
           setEditingPosition(false);
-          handleChange(position, e.target.name);
+          handleChange(e.target.value, e.target.name);
         }
       }}
       type={"text"}
@@ -123,15 +123,15 @@ export default function Company(props) {
       autoFocus
       onChange={(e) => {
         setStartDate(e.target.value);
-        handleChange(startDate, e.target.name);
       }}
       onBlur={(e) => {
         setEditingStartDate(false);
+        handleChange(e.target.value, e.target.name);
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
           setEditingStartDate(false);
-          handleChange(startDate, e.target.name);
+          handleChange(e.target.value, e.target.name);
         }
       }}
       type={"text"}
@@ -155,15 +155,15 @@ export default function Company(props) {
       autoFocus
       onChange={(e) => {
         setEndDate(e.target.value);
-        handleChange(endDate, e.target.name);
       }}
       onBlur={(e) => {
         setEditingEndDate(false);
+        handleChange(e.target.value, e.target.name);
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
           setEditingEndDate(false);
-          handleChange(endDate, e.target.name);
+          handleChange(e.target.value, e.target.name);
         }
       }}
       type={"text"}
@@ -182,6 +182,7 @@ export default function Company(props) {
 
   const dutiesList = duties.map((duty, index) => {
     const dutyName = "editDuty" + index;
+    let tempDuties = [...duties];
     if (editingDuties[dutyName]) {
       return (
         <li key={uuidv4()}>
@@ -201,17 +202,16 @@ export default function Company(props) {
             rows="2"
             autoFocus
             onChange={(e) => {
-              let tempDuties = [...duties];
               tempDuties[index] = e.target.value;
               setDuties(tempDuties);
+            }}
+            onBlur={(e) => {
+              handleDutyFocus(dutyName);
               handleChange(tempDuties, "duties");
             }}
-            onBlur={() => handleDutyFocus(dutyName)}
             onKeyUp={(e) => {
               if (e.key === "Enter") {
-                let tempDuties = [...duties];
                 tempDuties[index] = e.target.value;
-                setDuties(tempDuties);
                 handleChange(tempDuties, "duties");
                 handleDutyFocus(dutyName);
               }

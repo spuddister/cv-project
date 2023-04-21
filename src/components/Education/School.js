@@ -26,10 +26,10 @@ export default function School(props) {
       autoFocus
       onChange={(e) => {
         setSchool(e.target.value);
-        handleChange(school, "school");
       }}
       onBlur={(e) => {
         setEditingSchoolName(false);
+        handleChange(school, "school");
       }}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
